@@ -1,12 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
-
-import 'common.dart';
-import 'model_class/model_class.dart';
-
 DateTimeToWeekDay(DateTime dt) {
   switch (dt.weekday) {
     case 1:
@@ -57,5 +48,3 @@ DateTimeToMonth(DateTime dt) {
       return 'Error';
   }
 }
-
-

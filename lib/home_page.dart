@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:weather_app/common.dart';
 import 'package:weather_app/home_screen.dart';
 import 'package:weather_app/model_class/model_class.dart';
@@ -34,11 +32,11 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 80),
+            const SizedBox(height: 80),
             InkWell(
               child: Text(
                 '${widget.weatherObj?.name}',
-                style: TextStyle(color: Colors.white, fontSize: 35),
+                style: const TextStyle(color: Colors.white, fontSize: 35),
               ),
               onTap: () {
                 setState(() {
@@ -46,12 +44,12 @@ class _HomePageState extends State<HomePage> {
                 });
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Visibility(
               visible: searchVisibility,
               child: TextFormField(
                 controller: searchTextController,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     suffixIcon: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -61,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                             onPressed: () {
                               findGeoLoc(searchTextController.text);
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.search,
                               color: Colors.white,
                             )),
@@ -72,51 +70,51 @@ class _HomePageState extends State<HomePage> {
                                 searchVisibility = false;
                               });
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.clear,
                               color: Colors.white,
                             )),
                       ],
                     ),
                     hintText: 'Search',
-                    hintStyle: TextStyle(color: Colors.white)),
+                    hintStyle: const TextStyle(color: Colors.white)),
               ),
             ),
             //////
-            SizedBox(height: 80),
+            const SizedBox(height: 80),
             Row(
               children: [
                 Text(
                   widget.weatherObj?.main?.temp?.toStringAsFixed(0) == null
                       ? '--'
                       : widget.weatherObj!.main!.temp!.toStringAsFixed(0),
-                  style: TextStyle(color: Colors.white, fontSize: 70),
+                  style: const TextStyle(color: Colors.white, fontSize: 70),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       '°C',
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       widget.weatherObj?.weather?[0].description == null
                           ? ''
                           : '${widget.weatherObj!.weather?[0].description}',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: const TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ],
                 )
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               '${DateTime.now().day} ${DateTimeToMonth(DateTime.now())} ${DateTimeToWeekDay(DateTime.now())}',
-              style: TextStyle(fontSize: 18, color: Colors.white),
+              style: const TextStyle(fontSize: 18, color: Colors.white),
             ),
-            SizedBox(height: 80),
+            const SizedBox(height: 80),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -139,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -163,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -209,7 +207,7 @@ class _HomePageState extends State<HomePage> {
       }
 
       Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-        return HomeScreen();
+        return const HomeScreen();
       }));
     }
   }

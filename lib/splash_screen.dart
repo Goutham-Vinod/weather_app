@@ -1,10 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_app/functions.dart';
 import 'package:weather_app/home_screen.dart';
 import 'package:http/http.dart' as http;
 import 'common.dart';
@@ -32,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
@@ -47,8 +43,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   klogoImage,
                   width: MediaQuery.of(context).size.width * .4,
                 ),
-                SizedBox(height: 70),
-                CircularProgressIndicator(
+                const SizedBox(height: 70),
+                const CircularProgressIndicator(
                   color: Colors.blue,
                 ),
               ],
@@ -85,9 +81,6 @@ class _SplashScreenState extends State<SplashScreen> {
     if (currentPosition != null) {
       currentLatitude = currentPosition?.latitude;
       currentLongitude = currentPosition?.longitude;
-      // return true;
-
-      print('current latitude $currentLatitude');
 
       final responseObj = await http.get(Uri.parse(
           'https://api.openweathermap.org/data/2.5/weather?lat=$currentLatitude&lon=$currentLongitude&appid=710e3b7432b701de3cd910dd185a6ca0&units=metric'));
