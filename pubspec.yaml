@@ -39,7 +39,9 @@ dependencies:
   http: ^0.13.5
   build_runner: ^2.3.3
   geolocator: ^8.2.0
-  geocoding: ^2.0.4
+  geocoding: ^2.0.5
+ 
+
 
 dev_dependencies:
   flutter_test:
@@ -66,8 +68,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg
-  #   - images/a_dot_ham.jpeg
+    - assets/blurImg.jpg
+    - assets/CloudyImg.jpg
+    - assets/nightImg.jpg
+    - assets/RainyImg.jpg
+    - assets/sunnySky.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
 
 import 'common.dart';
+import 'model_class/model_class.dart';
 
 DateTimeToWeekDay(DateTime dt) {
   switch (dt.weekday) {
@@ -54,29 +58,4 @@ DateTimeToMonth(DateTime dt) {
   }
 }
 
-getLocation() async {
-  bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    return Future.error('Location services are disabled.. turn on location');
-  }
 
-  LocationPermission permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      return Future.error('Location permission denied');
-    }
-  }
-
-  if (permission == LocationPermission.deniedForever) {
-    permission = await Geolocator.requestPermission();
-    return Future.error('Location permission denied forever,we cannot request');
-  }
-
-  currentPosition = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high);
-
-  if (currentPosition != null) {
-    return true;
-  }
-}
