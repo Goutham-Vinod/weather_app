@@ -211,8 +211,6 @@ class _HomePageState extends State<HomePage> {
       Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
         return HomeScreen();
       }));
-    } else {
-      print('query is null');
     }
   }
 }

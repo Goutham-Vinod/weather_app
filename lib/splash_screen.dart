@@ -39,7 +39,21 @@ class _SplashScreenState extends State<SplashScreen> {
                       kBlurImage,
                     ))),
           ),
-          Center(child: Text('Spash Screen')),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  klogoImage,
+                  width: MediaQuery.of(context).size.width * .4,
+                ),
+                SizedBox(height: 70),
+                CircularProgressIndicator(
+                  color: Colors.blue,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -82,11 +96,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
         weatherObj = ModelClass.fromJson(responseResult);
 
+        await Future.delayed(const Duration(seconds: 2));
+
         Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
           return HomeScreen();
         }));
-
-        print('object created');
       }
     }
   }

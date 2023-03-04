@@ -12,6 +12,8 @@ const kNightImage = 'assets/nightImg.jpg';
 
 const kBlurImage = 'assets/blurImg.jpg';
 
+const klogoImage = 'assets/weather_app_logo.png';
+
 String iconId = '10d';
 String kIconUrlBase = 'http://openweathermap.org/img/wn/';
 String kIconUrlEndpoint = '@2x.png';
